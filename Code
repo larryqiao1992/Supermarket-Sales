@@ -1,0 +1,47 @@
+--1.Average sales by department
+	Select
+	ProductLine as Department,
+	Concat('$',' ',Round(avg(total),2)) as Average_Sale
+	From
+	Supermarketsales
+	Group by
+	Department
+	Order by
+	Average_Sale DESC
+
+--2.Total sales by department
+	Select
+	ProductLine as Department,
+	Concat('$',' ',round(sum(total),2)) as Total_Sale
+	From
+	Supermarketsales
+	Group by
+	Department
+	Order by
+	Total_sale DESC
+
+--3.Total sales by month
+	Select
+	Left(Date,1) as Month,
+	Concat('$',' ',Round(sum(total),2)) as Total_Sale
+	From
+	Supermarketsales
+	Group by
+	Month
+	Order by
+	Month
+
+--4.Total sales by city and payment
+	Select
+	City,
+	Payment,
+	Concat('$',' ',round(sum(total),2)) as Total_Sales
+	From
+	Supermarketsales
+	Group by
+	Payment,
+	City
+	Order by
+	City
+
+
